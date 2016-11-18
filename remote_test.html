@@ -1,0 +1,85 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no,shrink-to-fit=no,minimum-scale=1,maximum-scale=1">
+	<title>TEST REMOTE POSTMESSAGE</title>
+
+	<style type="text/css">
+		body{
+			font-size: 10px;
+			background: #ff9900;
+			margin: 10px;
+			text-align: center;
+		}
+		button{
+			font-size: 16px;
+		}
+		#agent, #count, #tester{
+			color:white;
+			font-size: 11px;
+		}
+	</style>
+	<script> 
+		
+		var ua;
+		var count = 0;
+
+		function init(){
+
+			var el = document.getElementById('agent');
+			ua = navigator.userAgent;
+			el.innerHTML = ua;
+			
+		}
+
+		function test(){
+			try{
+	            // Using custom Titanium module which creates a JavascriptInterface object called 'Android' when using that platform
+	            count++;
+	            var cel = document.getElementById('count');
+				cel.innerHTML = count;
+
+	            if( ua.indexOf('MY_APP_android') > -1 ){ // See README.md 
+	            	// Android 
+		            AmazingAndroid.postMessage(JSON.stringify({foo: 'BAR_'+count}), '*'); 
+				} else {
+		            // iOS
+		            window.webkit.messageHandlers.hostInbox.postMessage({foo: 'BAR_'+count},'*');					
+				}
+
+	        } catch(e){
+	            console.log('postMessage ERROR:');  
+	            console.log(e);
+	        }
+		}
+
+		function rel(){	
+			document.location.reload(true);
+		}
+
+	</script>
+
+</head>
+
+<body onload="init()">
+	<br><br>
+	<h4>remote html testing</h4>
+
+	<button onclick="test()"> postMessage({foo: 'BAR'}) </button>
+	<br>
+	Click this and see the message arrive in your app console after subscriping to the 'messageFromWebview' event.
+
+	<br><br>
+
+	<button onclick="rel()"> reload page </button> 
+
+	<br><hr><br>
+	<span id="agent">agent</span>
+	<br><hr><br>
+	<span id="count">count</span>
+	<br><hr>
+
+	<br>
+	<hr>
+
+</body>
+</html>
