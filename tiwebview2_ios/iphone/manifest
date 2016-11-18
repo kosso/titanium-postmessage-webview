@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: TiWebview2_ios
+author: Kosso
+license: MIT
+copyright: 2016
+
+# these should not be edited
+name: TiWebview2_ios
+moduleid: com.kosso.tiwebview2
+guid: 1a80ca8b-a08d-42ef-af8a-51dd9722babe
+platform: iphone
+minsdk: 5.5.1.GA

@@ -1,0 +1,7 @@
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/build/generated/java/com/kosso/tiwebview2/Tiwebview2Bootstrap.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/Tiwebview2Module.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/impl/TiUIWebView.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/impl/TiWebChromeClient.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/impl/TiWebViewBinding.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/impl/TiWebViewClient.java"
+"/Users/kosso/Documents/Appcelerator_Studio_Workspace/tiwebview2_android/android/src/com/kosso/tiwebview2/proxy/WebViewProxy.java"

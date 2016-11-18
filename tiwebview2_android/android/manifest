@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: tiwebview2
+author: Kosso
+license: MIT
+copyright: 2016
+
+# these should not be edited
+name: tiwebview2
+moduleid: com.kosso.tiwebview2
+guid: 62d8454c-91ee-410e-9498-7d28b180dbdb
+platform: android
+minsdk: 5.5.1.GA
