@@ -1,13 +1,17 @@
 # titanium-postmessage-webview
-WORK IN PROGRESS / PoC : Titanium modules for iOS and Android to expose 'postMessage' ability to fire events from remote HTML to a Titanium app JS
+**WORK IN PROGRESS** / PoC : Titanium modules for iOS and Android to expose 'postMessage' ability to fire events from remote HTML to a Titanium app JS
 
-NOT PRODUCTION READY
+### NOT PRODUCTION READY
 
-Ideas and pull requests are welcome! Lots of room for improvement. ;) 
+iOS 9+. 
+
+Android 5+.
+
+*Ideas and pull requests are welcome! Lots of room for improvement. ;)* 
 
 ##### Motivation
 
-To attempt to overcome some limitations with Titanium's built-in WebViews for iOS and Android, when it comes to remote HTML Javascript communication with native apps, these two experimental Titanium modules for iOS and Android should (when they both work properly) provide a similar method to a browser's `postMessage` and its ability to communicate with a parent iframe.
+To attempt to overcome some limitations with Titanium's built-in WebViews for iOS and Android, when it comes to remote HTML Javascript communication with native apps, these two experimental Titanium modules for iOS and Android should (when they both work properly) provide a *similar* method to a browser's `postMessage` and its ability to communicate with a parent iframe.
 
 
 
@@ -41,9 +45,12 @@ These folders contain the module zip files for installing into Titanium Studio t
 
 #### Usage
 
-Also see: remote_test.html which you'll want to serve somewhere.
+Also see: remote_test.html showing the require JS to message each platform. You'll want to serve this somewhere.
 
-```
+
+
+```javascript
+// .....  
 var tiwebview2 = require('com.kosso.tiwebview2'); // iOS and Android
 
 var TEST_URL = 'http://SOMEWHERE.com/remote_test.html' // see file included in repo for postMessage examples.
@@ -160,8 +167,8 @@ var webview2 = tiwebview2.createWebView({
     }
   });
   */
-
-
+  
+// etc...
 ```
 
 
