@@ -52,7 +52,7 @@ import android.webkit.JavascriptInterface; // Kosso
 public class TiUIWebView extends TiUIView
 {
 
-	private static final String TAG = "KOSSO:";
+	private static final String TAG = "TiUIWebView";
 	private TiWebViewClient client;
 	private TiWebChromeClient chromeClient;
 	private boolean bindingCodeInjected = false;
@@ -187,8 +187,6 @@ public class TiUIWebView extends TiUIView
 		@JavascriptInterface
 
 		public boolean postMessage(String jsonString, String transferList){
-			Log.d(TAG, "KOSSO: postMessage: ");
-			Log.d(TAG, jsonString);
 			
 			KrollDict data = new KrollDict();
 			data.put("message", jsonString);
@@ -262,15 +260,10 @@ public class TiUIWebView extends TiUIView
 				setBasicAuthentication(username, password);
 			}
 			webProxy.clearBasicAuthentication();
-
-			Log.d(TAG, "KOSSO: **** YO ************************************: ");
-
-			// Kosso : Enable postMessage JavascriptInterface called 'Android'.
-			// webProxy.getWebView().getWebView().addJavascriptInterface(new JavascriptInterfaceObject(), "Android");
 		}
 		
-		Log.d(TAG, "KOSSO: **** Adding interface ************************************: ");
-		webView.addJavascriptInterface(new JavascriptInterfaceObject(), "AmazingAndroid");
+		Log.d(TAG, "**** Adding JavascriptInterfaceObject ************************************: ");
+		webView.addJavascriptInterface(new JavascriptInterfaceObject(), "Android");
 
 
 		TiCompositeLayout.LayoutParams params = getLayoutParams();
@@ -489,7 +482,6 @@ public class TiUIWebView extends TiUIView
 			}
 		}
 
-		Log.d(TAG, "KOSSO: WebView will load " + url + " directly without code injection.", Log.DEBUG_MODE);
 		// iOS parity: for whatever reason, when a remote url is used, the iOS implementation
 		// explicitly sets the native webview's setScalesPageToFit to YES if the
 		// Ti scalesPageToFit property has _not_ been set.
@@ -498,8 +490,7 @@ public class TiUIWebView extends TiUIView
 		}
 		isLocalHTML = false;
 		if (extraHeaders.size()>0){
-			Log.d(TAG, "KOSSO: WebView loading with extra headers");
-
+			// Log.d(TAG, "WebView loading with extra headers??");
  			getWebView().loadUrl(finalUrl, extraHeaders);
  		} else {
  			getWebView().loadUrl(finalUrl);
@@ -738,15 +729,9 @@ public class TiUIWebView extends TiUIView
 
 	public void setUserAgentString(String userAgentString)
 	{
-		Log.d(TAG, "KOSSO: TiUIWebView.java setUserAgentString: " + userAgentString);
 		WebView currWebView = getWebView();
 		if (currWebView != null) {
-			Log.d(TAG, "KOSSO: TiUIWebView.java setUserAgentString: currWebView OK");
-
 			currWebView.getSettings().setUserAgentString(userAgentString);
-
-			Log.d(TAG, "KOSSO: TiUIWebView.java AFTER setUserAgentString");
-
 		}
 	}
 

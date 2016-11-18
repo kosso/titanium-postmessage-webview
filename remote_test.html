@@ -40,7 +40,7 @@
 
 	            if( ua.indexOf('MY_APP_android') > -1 ){ // See README.md 
 	            	// Android 
-		            AmazingAndroid.postMessage(JSON.stringify({foo: 'BAR_'+count}), '*'); 
+		            Android.postMessage(JSON.stringify({foo: 'BAR_'+count}), '*'); 
 				} else {
 		            // iOS
 		            window.webkit.messageHandlers.hostInbox.postMessage({foo: 'BAR_'+count},'*');					

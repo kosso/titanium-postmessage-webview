@@ -98,13 +98,10 @@ public class WebViewProxy extends TiViewProxy
 		TiUIWebView webView = new TiUIWebView(this);
 
 		if (postCreateMessage != null) {
-			Log.d(TAG, "KOSSO: **** PROXY sendPostCreateMessage ************************************: ");
 			sendPostCreateMessage(webView.getWebView(), postCreateMessage);
 			postCreateMessage = null;
 		}
-
-		Log.d(TAG, "KOSSO: **** PROXY webView created ************************************: ");
-
+		
 		return webView;
 	}
 
@@ -152,7 +149,6 @@ public class WebViewProxy extends TiViewProxy
 		// from it.
 		TiUIWebView view = (TiUIWebView) peekView();
 		if (view == null) {
-			Log.w(TAG, "KOSSO: PROXY - WebView not available, returning null for evalJS result.");
 			return null;
 		}
 		return view.getJSValue(code);
@@ -264,35 +260,6 @@ public class WebViewProxy extends TiViewProxy
 		getWebView().setBasicAuthentication(username, password);
 
 	}
-
-	/*
-	// postMessage hack //////////////////////////////// kosso 
-	class JavascriptInterfaceObject {
-		@JavascriptInterface
-
-		public boolean postMessage(String jsonString, String transferList){
-			// Log.d(DBG, "postMessage: ");
-			// Log.d(DBG, jsonString);
-			KrollDict data = new KrollDict();
-			data.put("message", jsonString);
-			fireEvent("message", data);
-			return false;
-		}
-	}
-	// postMessage
-	@Kroll.method
-	public void enablePostMessage()
-    {
-
-    	TiUIWebView webView = (TiUIWebView) peekView();
-		if (webView == null) {
-			return;
-		}
-		WebView nativeWebView = webView.getWebView();
-		nativeWebView.addJavascriptInterface(new JavascriptInterfaceObject(), "Android");
-    }
-    ///////////////////////////////////////////////////// kosso 
-	*/
 	
 	@Kroll.method @Kroll.setProperty
 	public void setUserAgent(String userAgent)
@@ -300,14 +267,8 @@ public class WebViewProxy extends TiViewProxy
 		TiUIWebView currWebView = getWebView();
 		if (currWebView != null) {
 			if (TiApplication.isUIThread()) {
-				Log.d(TAG, "KOSSO: PROXY setUserAgent on UIThread ");
-				String ag = "KOSSO: " + userAgent;
-				Log.d(TAG, ag);
-
 				currWebView.setUserAgentString(userAgent);
 			} else {
-				//Log.d(TAG, "KOSSO: PROXY setUserAgent with message");
-
 				Message message = getMainHandler().obtainMessage(MSG_SET_USER_AGENT);
 				message.obj = userAgent;
 				message.sendToTarget();
